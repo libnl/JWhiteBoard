@@ -1,6 +1,6 @@
 package jWhiteBoard;
 
-
+import java.util.Random;
 import org.jgroups.*;
 import org.jgroups.jmx.JmxConfigurator;
 import org.jgroups.stack.AddressGenerator;
@@ -237,12 +237,11 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
      */
     // detect Random color function not work
     private Color selectColor() {
-        int red=Math.abs(random.nextInt()) % 255;
-        int green=Math.abs(random.nextInt()) % 255;
-        int blue=Math.abs(random.nextInt()) % 255;
+        float red=Math.abs(random.nextInt()) % 255;
+        float green=Math.abs(random.nextInt()) % 255;
+        float blue=Math.abs(random.nextInt()) % 255;
         return new Color(red, blue, blue);
     }
-
 
     /**
      * Send message to members in members list only.
@@ -280,8 +279,8 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
         subPanel.add("South", leaveButton);
         mainFrame.getContentPane().add("South", subPanel);
         mainFrame.setBackground(Color.WHITE);
-        clearButton.setForeground(Color.blue);
-        leaveButton.setForeground(Color.blue);
+        clearButton.setForeground(Color.black);
+        leaveButton.setForeground(Color.black);
         mainFrame.pack();
         mainFrame.setLocation(15, 25);
         mainFrame.setBounds(new Rectangle(250, 250));
@@ -364,7 +363,7 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
             // This is a simple merge function, which fetches the state from the coordinator
             // on a merge and overwrites all of its own state
             if(useState && !members.isEmpty()) {
-                Address coord=members.get(0);
+                Address coord=members.get(1);
                 Address local_addr=channel.getAddress();
                 if(local_addr != null && !local_addr.equals(coord)) {
                     try {

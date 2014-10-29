@@ -235,6 +235,7 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
      * Generate Random Color
      * @return
      */
+    // detect Random color function not work
     private Color selectColor() {
         int red=Math.abs(random.nextInt()) % 255;
         int green=Math.abs(random.nextInt()) % 255;

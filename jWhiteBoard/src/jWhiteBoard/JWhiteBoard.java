@@ -265,7 +265,7 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
         mainFrame=new JFrame();
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         drawPanel=new DrawPanel(useState);
-        drawPanel.setBackground(backgroundColor);
+        drawPanel.setBackground(Color.WHITE);
         subPanel=new JPanel();
         mainFrame.getContentPane().add("Center", drawPanel);
         clearButton=new JButton("Clear");
@@ -277,7 +277,7 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
         subPanel.add("South", clearButton);
         subPanel.add("South", leaveButton);
         mainFrame.getContentPane().add("South", subPanel);
-        mainFrame.setBackground(backgroundColor);
+        mainFrame.setBackground(Color.WHITE);
         clearButton.setForeground(Color.blue);
         leaveButton.setForeground(Color.blue);
         mainFrame.pack();
